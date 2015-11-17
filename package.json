@@ -1,4 +1,5 @@
-me": "simple-http-proxy",
+{
+  "name": "simple-http-proxy",
   "version": "1.0.0",
   "author": "William Collins <wcurtiscollins@gmail.com>",
   "description": "Simple HTTP proxy.",
