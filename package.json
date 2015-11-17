@@ -1,6 +1,6 @@
 {
   "name": "super-simple-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "William Collins <wcurtiscollins@gmail.com>",
   "description": "Simple HTTP proxy.",
   "repository": {
