@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var http = require('http'),
+    httpProxy = require('http-proxy'),
+    yargs = require('yargs');
+
+var commandline = yargs.
+                    usage("Usage: $0 --hostname [host] --source [port] --target [port]").
+                    alias({
+                      c: "cert",
+                      h: "help",
+                      k: "key",
+                      n: "hostname",
+                      o: "config",
+                      s: "source",
+                      t: "target",
+                      v: "version"
+                    }).
+                    default({
+                      c: path.join(__dirname, "..", "resources", "localhost.cert"),
+                      k: path.join(__dirname, "..", "resources", "localhost.key"),
+                      n: "localhost",
+                      s: 80,
+                      t: 3000
+                    });
+
+var args = commandline.argv;
+
+if (args.h) {
+  console.error(commandline.help());
+  return;
+}
+
+httpProxy.createProxyServer({target:'http://localhost' + args.target}).listen(args.source);
+console.log(chalk.green("Started " + chalk.bold(name) + ": http://" + hostname + ":" + source, "→ http://" + hostname + ":" + target));
