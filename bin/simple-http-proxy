@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
 var http = require('http'),
+    path = require('path'),
+    chalk = require('chalk'),
     httpProxy = require('http-proxy'),
     yargs = require('yargs');
+
+var package = require(path.join(__dirname, "..", "package.json"));
 
 var commandline = yargs.
                     usage("Usage: $0 --hostname [host] --source [port] --target [port]").
@@ -31,5 +35,11 @@ if (args.h) {
   return;
 }
 
-httpProxy.createProxyServer({target:'http://localhost' + args.target}).listen(args.source);
-console.log(chalk.green("Started " + chalk.bold(name) + ": http://" + hostname + ":" + source, "→ http://" + hostname + ":" + target));
+var name = 'proxy';
+var hostname = 'localhost';
+
+httpProxy.createProxyServer({target:'http://localhost:' + args.target}).listen(args.source);
+
+console.log(chalk.green("Started " + chalk.bold(name) + ": http://" + hostname + ":" + args.source, "→ http://" + hostname + ":" + args.target));
+
+
