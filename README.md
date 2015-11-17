@@ -10,12 +10,12 @@ Eventually I'll integrate the ssl proxy into this one.
 Install
 -------
 ```sh
-npm install -g simple-http-proxy
+npm install -g super-simple-proxy
 ```
 
 Run
 ---
 To start a proxy from port `80` to `3000` run:
 ```sh
-simple-http-proxy --source 80 --target 3000
+super-simple-proxy --source 80 --target 3000
 ```
