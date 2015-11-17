@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "bin": {
-    "local-ssl-proxy": "bin/local-ssl-proxy"
+    "simple-http-proxy": "bin/simple-http-proxy"
   },
   "dependencies": {
     "chalk": "^1.1.1",
